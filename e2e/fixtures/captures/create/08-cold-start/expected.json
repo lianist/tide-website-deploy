@@ -1,0 +1,62 @@
+{
+  "mode": "create",
+  "cases": [
+    {
+      "image": "../01-single-task/01-military-email-excel-due-jan26.jpeg",
+      "source": "군 업무 메일 — 막 가입해 태그가 '미분류'뿐인 계정",
+      "capturedAt": "2026-01-15T13:00:00+09:00",
+      "timezone": "Asia/Seoul",
+      "existingTags": ["미분류"],
+      "expect": {
+        "outcome": "created",
+        "taskCount": 1,
+        "tasks": [
+          {
+            "titleMustMention": ["Excel"],
+            "dueAt": "2026-01-26",
+            "newTag": true
+          }
+        ]
+      },
+      "note": "**태그가 과녁이다 (HF-10).** 기존 태그가 '미분류'뿐이면 에이전트가 모든 캡처를 '미분류'로 보내 빠져나오지 못했다(QA 보고 2026-09-29). 발신 부대·업무 지시라는 영역 단서가 뚜렷하므로 새 태그가 생겨야 한다. **태그 이름은 보지 않는다** — '군무'든 '직장'이든 모델이 지은 이름이면 된다. 제목·마감 기대는 `01-single-task/01`과 같다."
+    },
+    {
+      "image": "../05-relative-date/02-kakao-survey-next-monday.png",
+      "source": "공지 메시지 — 사전 설문조사. 태그가 '미분류'뿐인 계정",
+      "capturedAt": "2026-09-19T21:00:00+09:00",
+      "timezone": "Asia/Seoul",
+      "existingTags": ["미분류"],
+      "expect": {
+        "outcome": "created",
+        "taskCount": 1,
+        "tasks": [
+          {
+            "titleMustMention": ["설문"],
+            "dueAt": "2026-09-21",
+            "newTag": true
+          }
+        ]
+      },
+      "note": "`05-relative-date/02`는 영역 태그가 있어도 '미분류'로 가곤 하는 알려진 약점 케이스다(ROADMAP L-P0-08). 콜드 스타트에서는 '미분류'가 오답이다 — 과정·프로그램 공지라는 단서로 영역을 세워야 한다."
+    },
+    {
+      "image": "../02-multiple-tasks/01-note-presentation-prep.png",
+      "source": "iOS 메모 — 교양 발표 준비. 태그가 '미분류'뿐인 계정",
+      "capturedAt": "2026-09-20T21:52:00+09:00",
+      "timezone": "Asia/Seoul",
+      "existingTags": ["미분류"],
+      "expect": {
+        "outcome": "created",
+        "taskCount": [1, 2],
+        "tasks": [
+          {
+            "titleMustMention": ["PPT"],
+            "dueAt": "2026-09-21",
+            "newTag": true
+          }
+        ]
+      },
+      "note": "'교양 발표'가 영역 단서다. 두 태스크로 나뉘면 둘째는 보지 않는다(기대 태스크만 매칭) — 개수는 `02-multiple-tasks/01`과 같은 이유로 느슨하다."
+    }
+  ]
+}

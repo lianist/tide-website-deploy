@@ -1,0 +1,24 @@
+{
+  "mode": "create",
+  "cases": [
+    {
+      "image": "01-military-email-excel-due-jan26.jpeg",
+      "source": "군 업무 메일 — 상급자가 Excel 문서 작성과 회신을 지시",
+      "capturedAt": "2026-01-15T13:00:00+09:00",
+      "timezone": "Asia/Seoul",
+      "existingTags": ["군무", "학업", "여행", "미분류"],
+      "expect": {
+        "outcome": "created",
+        "taskCount": 1,
+        "tasks": [
+          {
+            "titleMustMention": ["Excel"],
+            "dueAt": "2026-01-26",
+            "tags": ["군무"]
+          }
+        ]
+      },
+      "note": "연도가 없는 'JAN 26'을 capturedAt(2026-01) 기준으로 2026-01-26으로 잡아야 한다. 2027로 넘기면 AGT-4 실패다. 본문이 영어라 제목 언어가 흔들릴 수 있어 titleMustMention은 언어를 타지 않는 'Excel' 하나만 건다."
+    }
+  ]
+}

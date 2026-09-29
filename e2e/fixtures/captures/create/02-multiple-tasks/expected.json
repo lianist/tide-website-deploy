@@ -1,0 +1,68 @@
+{
+  "mode": "create",
+  "cases": [
+    {
+      "image": "01-note-presentation-prep.png",
+      "source": "iOS 메모 — '9/21일 교양 발표 준비: PPT 검토, 대본 읽어보고 발표 길이 확인하기.'",
+      "capturedAt": "2026-09-20T21:52:00+09:00",
+      "timezone": "Asia/Seoul",
+      "existingTags": ["군무", "학업", "여행", "미분류"],
+      "expect": {
+        "outcome": "created",
+        "taskCount": [1, 2],
+        "tasks": [
+          {
+            "titleMustMention": ["PPT"],
+            "dueAt": "2026-09-21",
+            "tags": ["학업"]
+          }
+        ]
+      },
+      "note": "쉼표로 나뉜 두 동작(PPT 검토 / 대본 읽고 발표 길이 확인)이라 2개가 자연스럽지만, 하나의 발표 준비로 묶어 1개를 내는 것도 방어 가능하다. **개수로 프롬프트를 조이지 말 것** — 이 케이스에서 볼 것은 '9/21일'이 연도를 얻어 2026-09-21이 되는가다."
+    },
+    {
+      "image": "02-travel-agency-ticket-confirm.jpeg",
+      "source": "여행사 발권 완료 메일 — 번호 매긴 요청 3건 중 2건이 할 일, 1건은 안내",
+      "capturedAt": "2026-05-19T12:00:00+09:00",
+      "timezone": "Asia/Seoul",
+      "existingTags": ["군무", "학업", "여행", "미분류"],
+      "expect": {
+        "outcome": "created",
+        "taskCount": 2,
+        "tasks": [
+          {
+            "titleMustMention": ["영문", "이름"],
+            "dueAt": null,
+            "tags": ["여행"]
+          },
+          {
+            "titleMustMention": ["비자"],
+            "dueAt": null,
+            "tags": ["여행"]
+          }
+        ]
+      },
+      "note": "**과생성 함정이 들어 있다.** 3번 항목('항공편 결항·지연 시 항공사에서 안내됩니다')은 안내이지 할 일이 아니다. 번호가 매겨졌다고 전부 태스크로 만들면 3개가 나오고, 그건 실패다. 마감이 어디에도 없으므로 dueAt은 셋 다 null이어야 한다(AGT-4 — 추측하지 않는다). 메일에 연도가 없어 2026년으로 가정했다."
+    },
+    {
+      "image": "03-newspaper-recruit-schedule.png",
+      "source": "학내 신문사 수습기자 모집 공고 — 신청 마감·논술 시험·대면 면접 세 일정",
+      "capturedAt": "2026-09-20T21:22:00+09:00",
+      "timezone": "Asia/Seoul",
+      "existingTags": ["군무", "학업", "여행", "미분류"],
+      "expect": {
+        "outcome": "created",
+        "taskCount": [1, 3],
+        "tasks": [
+          {
+            "titleMustMention": ["신청", "지원", "제출"],
+            "titleMustMentionMode": "any",
+            "dueAt": "2026-09-22",
+            "tags": ["학업"]
+          }
+        ]
+      },
+      "note": "정보 밀도가 가장 높은 케이스다. 반드시 나와야 하는 것은 '9/22까지 신청서 제출' 하나뿐이고, 논술(9/23)·면접(9/28~29)까지 태스크로 뽑는 것도 지원을 전제하면 타당하다. 그래서 개수를 1~3으로 열어 두고 필수 태스크 하나만 건다. 포스터에 연락처가 찍혀 있으니 **저장소를 공개로 돌릴 때 이 파일을 먼저 확인할 것.**"
+    }
+  ]
+}

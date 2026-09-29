@@ -1,0 +1,19 @@
+{
+  "mode": "create",
+  "cases": [
+    {
+      "image": "01-strawberry.jpg",
+      "source": "딸기 사진 — 업무와 아무 관계가 없다",
+      "capturedAt": "2026-09-20T22:00:00+09:00",
+      "timezone": "Asia/Seoul",
+      "existingTags": ["군무", "학업", "여행", "미분류"],
+      "expect": {
+        "outcome": "failed",
+        "failureCode": "NO_TASK_TO_CREATE",
+        "taskCount": 0,
+        "tasks": []
+      },
+      "note": "**아무것도 만들지 않는 것이 정답인 유일한 생성 케이스다**(AGT-3). '딸기 사러 가기' 같은 태스크를 지어내면 실패다. 에이전트가 무언가를 내놓도록 압박받는 프롬프트를 쓰면 여기서 바로 드러난다. 요청 자체는 성공이므로 HTTP 200에 `data.failure`로 나가야 한다 — `error` 봉투가 아니다."
+    }
+  ]
+}

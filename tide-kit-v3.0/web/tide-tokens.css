@@ -1,0 +1,66 @@
+:root {
+  /* 주색 Primary — Mist #F5F5F5 (100), 채도 0 회색 */
+  --primary-0: #FFFFFF;
+  --primary-50: #FAFAFA;
+  --primary-100: #F5F5F5;
+  --primary-200: #E9E9E9;
+  --primary-300: #DCDCDC;
+  --primary-400: #BEBEBE;
+  --primary-500: #878787;
+  --primary-600: #6D6D6D;
+  --primary-700: #545454;
+  --primary-800: #3A3A3A;
+  --primary-900: #1E1E1E;
+
+  /* 보조색 Secondary — Tide Indigo #444892 (600), 브랜드 컬러 */
+  --secondary-50: #F6F7FE;
+  --secondary-100: #D9DDF1;
+  --secondary-200: #BDC2E3;
+  --secondary-300: #A0A7D3;
+  --secondary-400: #838AC2;
+  --secondary-500: #656CAE;
+  --secondary-600: #444892;
+  --secondary-700: #353878;
+  --secondary-800: #272A5E;
+  --secondary-900: #1A1B46;
+
+  /* 기능색 Error — 마감 당일·지남, 오류에만 쓴다 */
+  --error-50: #FFF2F1;
+  --error-600: #CE343F;
+  --error-700: #AA1D2D;
+
+  /* 역할 토큰 (design-spec.md 3-4) */
+  --bg-page: var(--primary-100);
+  --bg-surface: var(--primary-0);
+  --bg-subtle: var(--primary-200);
+  --border: var(--primary-300);
+  --border-input: var(--primary-500);
+  --text: var(--primary-900);
+  --text-secondary: var(--primary-600);
+  --text-disabled: var(--primary-500);
+  --brand: var(--secondary-600);
+  --brand-hover: var(--secondary-700);
+  --on-brand: var(--primary-0);
+  --on-brand-secondary: var(--secondary-100);
+  --auto-bg: var(--secondary-100);
+  --auto-border: var(--secondary-200);
+  --auto-text: var(--secondary-700);
+  --auto-dot: var(--secondary-500);
+  --attention-bg: var(--secondary-50);
+  --attention-border: var(--secondary-200);
+  --attention-text: var(--secondary-800);
+  --attention-icon: var(--secondary-600);
+  --timer: var(--secondary-300);
+  --dark-panel: var(--secondary-900);
+  --dark-panel-text: var(--secondary-200);
+  --urgent: var(--error-600);
+  --error-bg: var(--error-50);
+  --error-text: var(--error-700);
+  --logo-pink: #F1A8C5; /* 로고 안에서만 쓴다 */
+
+  /* 타이포 */
+  --font-heading: "Wanted Sans Variable", "Pretendard Variable", sans-serif;
+  --font-body: "Pretendard Variable", -apple-system, sans-serif;
+}
+
+.num { font-feature-settings: "tnum"; }

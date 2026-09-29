@@ -1,0 +1,80 @@
+{
+  "mode": "create",
+  "cases": [
+    {
+      "image": "../01-single-task/01-military-email-excel-due-jan26.jpeg",
+      "source": "군 업무 메일 — 태그가 '미분류' + 무관한 분야 하나",
+      "capturedAt": "2026-01-15T13:00:00+09:00",
+      "timezone": "Asia/Seoul",
+      "existingTags": [
+        "봉사",
+        "미분류"
+      ],
+      "expect": {
+        "outcome": "created",
+        "taskCount": 1,
+        "tasks": [
+          {
+            "titleMustMention": [
+              "Excel"
+            ],
+            "dueAt": "2026-01-26",
+            "newTag": true
+          }
+        ]
+      },
+      "note": "**두 번째 분야 (HF-11).** 태그가 '미분류'뿐인 계정만 고친 HF-10 뒤에도, 무관한 분야 태그가 하나 생기면 다시 '미분류'로 떨어졌다(Luna 0/9). 부대 업무라는 소속 단서가 뚜렷하니 새 태그가 생겨야 하고, '봉사'에 넣으면 억지 분류다. 이름은 보지 않는다."
+    },
+    {
+      "image": "../02-multiple-tasks/01-note-presentation-prep.png",
+      "source": "교양 발표 메모 — 태그가 '미분류' + 무관한 분야 하나",
+      "capturedAt": "2026-09-20T21:52:00+09:00",
+      "timezone": "Asia/Seoul",
+      "existingTags": [
+        "봉사",
+        "미분류"
+      ],
+      "expect": {
+        "outcome": "created",
+        "taskCount": [
+          1,
+          2
+        ],
+        "tasks": [
+          {
+            "titleMustMention": [
+              "PPT"
+            ],
+            "dueAt": "2026-09-21",
+            "newTag": true
+          }
+        ]
+      },
+      "note": "'교양 발표'가 학교 수업이라는 소속 단서다. '봉사'도 '미분류'도 틀린다. 개수는 `02-multiple-tasks/01`과 같은 이유로 느슨하다."
+    },
+    {
+      "image": "../05-relative-date/02-kakao-survey-next-monday.png",
+      "source": "설문 공지 — 태그가 '미분류' + 무관한 분야 하나",
+      "capturedAt": "2026-09-19T21:00:00+09:00",
+      "timezone": "Asia/Seoul",
+      "existingTags": [
+        "봉사",
+        "미분류"
+      ],
+      "expect": {
+        "outcome": "created",
+        "taskCount": 1,
+        "tasks": [
+          {
+            "titleMustMention": [
+              "설문"
+            ],
+            "dueAt": "2026-09-21",
+            "newTag": true
+          }
+        ]
+      },
+      "note": "**알려진 약점.** 프로그램 공지라 소속이 '봉사'로도 읽힐 여지가 있어 '봉사'에 억지로 넣는 일이 잦다(HF-11 측정 Luna 1/3·Sol 1/3). 새 태그를 만들 때도 영역 대신 프로그램 이름('PULSE')을 쓴다 — 이름은 채점하지 않는다. 이 한 장에 지시문을 맞추지 말 것."
+    }
+  ]
+}

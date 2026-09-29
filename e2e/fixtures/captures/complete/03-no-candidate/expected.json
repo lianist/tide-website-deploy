@@ -1,0 +1,40 @@
+{
+  "mode": "complete",
+  "cases": [
+    {
+      "image": "01-service-update-announcement.png",
+      "source": "서비스 업데이트 공지 메일 — '랜딩페이지와 프로필 페이지가 리뉴얼되었습니다!'",
+      "capturedAt": "2026-09-21T01:02:00+09:00",
+      "timezone": "Asia/Seoul",
+      "existingTags": ["군무", "학업", "여행", "미분류"],
+      "seedTasks": [
+        {
+          "title": "PULSE 사전 설문조사 응답하기",
+          "dueAt": "2026-09-21",
+          "tags": ["학업"],
+          "status": "todo"
+        },
+        {
+          "title": "교양 발표 PPT 검토",
+          "dueAt": "2026-09-21",
+          "tags": ["학업"],
+          "status": "todo"
+        },
+        {
+          "title": "ROKMC G6 Excel 문서 회신",
+          "dueAt": "2026-01-26",
+          "tags": ["군무"],
+          "status": "todo"
+        }
+      ],
+      "expect": {
+        "outcome": "failed",
+        "failureCode": "NO_TASK_TO_COMPLETE",
+        "completedCount": 0,
+        "completedOneOf": [],
+        "unchangedCount": 3
+      },
+      "note": "**완료 어투가 함정이다.** '리뉴얼되었습니다', '오픈했습니다' 같은 완료형 문장이 가득하지만 **남이 한 일**이고 내 태스크와는 아무 상관이 없다. `04-unrelated`의 딸기처럼 대놓고 무관한 사진과 달리, 이건 업무 화면 모양을 하고 있어서 무언가를 닫고 싶게 만든다.\n\n정답은 **아무것도 바꾸지 않는 것**이다(`AGT-7`). 세 태스크 모두 `todo`로 남아야 하고, 실패는 `job_logs`에 `NO_TASK_TO_COMPLETE`로 기록된다. 요청 자체는 성공이므로 HTTP 200에 `data.failure`로 나간다 — `error` 봉투가 아니다.\n\n에이전트가 무언가를 닫도록 압박받는 프롬프트를 쓰면 여기서 가장 먼저 드러난다."
+    }
+  ]
+}

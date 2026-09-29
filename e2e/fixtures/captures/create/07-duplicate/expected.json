@@ -1,0 +1,51 @@
+{
+  "mode": "create",
+  "cases": [
+    {
+      "image": "../01-single-task/01-military-email-excel-due-jan26.jpeg",
+      "source": "군 업무 메일(영문) — 이미 한국어로 적어 둔 같은 할 일이 있다",
+      "capturedAt": "2026-01-15T13:00:00+09:00",
+      "timezone": "Asia/Seoul",
+      "existingTags": ["군무", "학업", "여행", "미분류"],
+      "seedTasks": [{ "title": "ROKMC G6 엑셀 문서 작성해서 회신하기", "dueAt": "2026-01-26", "tags": ["군무"] }],
+      "expect": {
+        "outcome": "failed",
+        "failureCode": "DUPLICATE_TASK",
+        "taskCount": 0,
+        "tasks": [],
+        "duplicates": ["ROKMC G6 엑셀 문서 작성해서 회신하기"]
+      },
+      "note": "**전부 중복.** 캡처는 영어('Excel document … Send this back')이고 기존 태스크는 한국어('엑셀 … 회신')다. 문자열로는 같지 않은데 대상과 행동이 같다 — 서버 문자열 비교가 대안이 못 되는 이유를 그대로 시험한다."
+    },
+    {
+      "image": "../02-multiple-tasks/02-travel-agency-ticket-confirm.jpeg",
+      "source": "여행사 발권 메일 — 할 일 둘 중 비자 확인만 이미 있다",
+      "capturedAt": "2026-05-19T12:00:00+09:00",
+      "timezone": "Asia/Seoul",
+      "existingTags": ["군무", "학업", "여행", "미분류"],
+      "seedTasks": [{ "title": "방문국 비자·입국 서류 필요한지 확인하기", "dueAt": null, "tags": ["여행"] }],
+      "expect": {
+        "outcome": "created",
+        "taskCount": 1,
+        "tasks": [{ "titleMustMention": ["영문", "이름"], "dueAt": null, "tags": ["여행"] }],
+        "duplicates": ["방문국 비자·입국 서류 필요한지 확인하기"]
+      },
+      "note": "**일부 중복.** 새로 만들 것은 영문 이름 재확인 하나뿐이다. 3번 항목(결항 안내)은 원래 케이스처럼 할 일이 아니다. 비자를 또 만들면 중복 놓침, 영문 이름까지 비자에 묶으면 거짓 중복."
+    },
+    {
+      "image": "../05-relative-date/02-kakao-survey-next-monday.png",
+      "source": "PULSE 사전 설문 안내 — 같은 프로그램의 다른 할 일이 이미 있다",
+      "capturedAt": "2026-09-19T21:00:00+09:00",
+      "timezone": "Asia/Seoul",
+      "existingTags": ["군무", "학업", "여행", "미분류"],
+      "seedTasks": [{ "title": "PULSE 이론수업 팀 편성 결과 확인하기", "dueAt": null, "tags": ["학업"] }],
+      "expect": {
+        "outcome": "created",
+        "taskCount": 1,
+        "tasks": [{ "titleMustMention": ["설문"], "dueAt": "2026-09-21", "tags": ["학업"] }],
+        "duplicates": []
+      },
+      "note": "**거짓 중복 함정.** 기존 태스크가 같은 프로그램(PULSE)이고 캡처 본문에 '이론수업 팀 구성'이라는 말까지 나온다. 하지만 설문 응답과 팀 편성 확인은 다른 행동이다. 주제어에 끌려 묶으면 설문 응답이 목록에서 사라진다 — 프롬프트 8번이 막으려는 쪽의 오판이다."
+    }
+  ]
+}

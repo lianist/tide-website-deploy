@@ -1,0 +1,50 @@
+{
+  "mode": "complete",
+  "cases": [
+    {
+      "image": "01-email-sent-research-consent-forms.png",
+      "source": "보낸 메일 — 연구 참여 동의·개인정보 동의·사례비 서류를 한 번에 첨부해 발송",
+      "capturedAt": "2026-09-21T01:00:00+09:00",
+      "timezone": "Asia/Seoul",
+      "existingTags": ["군무", "학업", "여행", "미분류"],
+      "seedTasks": [
+        {
+          "title": "연구 참여 동의서 작성해서 보내기",
+          "dueAt": null,
+          "tags": ["학업"],
+          "status": "todo"
+        },
+        {
+          "title": "개인정보 수집·이용 동의서 제출",
+          "dueAt": null,
+          "tags": ["학업"],
+          "status": "todo"
+        },
+        {
+          "title": "조사연구비 사례비 서류 작성",
+          "dueAt": null,
+          "tags": ["학업"],
+          "status": "todo"
+        },
+        {
+          "title": "교양 발표 PPT 검토",
+          "dueAt": "2026-09-21",
+          "tags": ["학업"],
+          "status": "todo"
+        }
+      ],
+      "expect": {
+        "outcome": "completed",
+        "failureCode": null,
+        "completedCount": 1,
+        "completedOneOf": [
+          "연구 참여 동의서 작성해서 보내기",
+          "개인정보 수집·이용 동의서 제출",
+          "조사연구비 사례비 서류 작성"
+        ],
+        "unchangedCount": 3
+      },
+      "note": "**첨부 6개가 미완료 태스크 세 개에 동시에 걸린다.** 메일 한 통이 셋을 다 끝낸 것처럼 보이지만, `AGT-6`은 **하나만** 고르라고 한다 — 되묻지도, 신뢰도를 매기지도 않고.\n\n그래서 검사는 '어느 것을 골랐나'가 아니라 **'하나만 골랐나'**다. 셋 중 무엇이든 통과이고, 둘 이상을 닫으면 실패다. 넷째('교양 발표 PPT 검토')는 서류와 무관하므로 반드시 `todo`로 남아야 한다.\n\n> 한 캡처가 여러 태스크를 닫는 것이 사실은 더 자연스러운 상황이다. 그럼에도 하나로 제한한 것은 제품 결정이고(결정 기록 2), 사용자가 나머지를 대시보드에서 직접 닫는다. **이 케이스로 '여러 개 닫기'를 열고 싶어지면 요구사항부터 고쳐야 한다.**"
+    }
+  ]
+}

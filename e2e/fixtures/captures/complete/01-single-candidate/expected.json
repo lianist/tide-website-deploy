@@ -1,0 +1,40 @@
+{
+  "mode": "complete",
+  "cases": [
+    {
+      "image": "01-kakao-survey-done.png",
+      "source": "참가자가 보낸 메시지 — 'PULSE 사전 설문조사 응답 완료하였습니다'",
+      "capturedAt": "2026-09-21T00:50:00+09:00",
+      "timezone": "Asia/Seoul",
+      "existingTags": ["군무", "학업", "여행", "미분류"],
+      "seedTasks": [
+        {
+          "title": "PULSE 사전 설문조사 응답하기",
+          "dueAt": "2026-09-21",
+          "tags": ["학업"],
+          "status": "todo"
+        },
+        {
+          "title": "교양 발표 PPT 검토",
+          "dueAt": "2026-09-21",
+          "tags": ["학업"],
+          "status": "todo"
+        },
+        {
+          "title": "고대신문 수습기자 지원서 제출",
+          "dueAt": "2026-09-22",
+          "tags": ["학업"],
+          "status": "todo"
+        }
+      ],
+      "expect": {
+        "outcome": "completed",
+        "failureCode": null,
+        "completedCount": 1,
+        "completedOneOf": ["PULSE 사전 설문조사 응답하기"],
+        "unchangedCount": 2
+      },
+      "note": "**`create/05-relative-date/02-kakao-survey-next-monday.png`와 짝이 되는 캡처다.** 그 캡처로 만들어진 태스크를 이 캡처가 닫는다 — 생성→완료 한 바퀴가 같은 사진 두 장으로 돌아가므로 `L-P0-14`의 E2E에 그대로 쓸 수 있다.\n\n방해 태스크를 일부러 섞었다. 같은 날(9/21) 마감인 '교양 발표 PPT 검토'가 있어서, 마감일만 보고 고르면 틀린다. 내용으로 골라야 한다(`AGT-6`). 나머지 둘은 `todo`로 남아 있어야 한다."
+    }
+  ]
+}

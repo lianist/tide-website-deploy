@@ -1,0 +1,86 @@
+{
+  "mode": "create",
+  "cases": [
+    {
+      "image": "01-chat-order-form-thursday.png",
+      "source": "가상 메신저 — 구매팀이 목요일 오후 3시까지 발주서를 요청하고 사용자가 수락",
+      "capturedAt": "2026-10-06T10:00:00+09:00",
+      "timezone": "Asia/Seoul",
+      "existingTags": ["회사", "동아리", "가족", "미분류"],
+      "expect": {
+        "outcome": "created",
+        "taskCount": 1,
+        "tasks": [{ "titleMustMention": ["발주서"], "dueAt": "2026-10-08T15:00:00+09:00", "tags": ["회사"] }]
+      },
+      "note": "요청(상대) + 수락(사용자)이 한 할 일로 모인다. 요일 환산과 시각까지."
+    },
+    {
+      "image": "02-email-parking-permit-oct5.png",
+      "source": "가상 영어 메일 — 주차 허가 갱신 서류를 Oct 5까지, 청소 일정은 안내",
+      "capturedAt": "2026-09-28T09:00:00+09:00",
+      "timezone": "Asia/Seoul",
+      "existingTags": ["회사", "동아리", "가족", "미분류"],
+      "expect": {
+        "outcome": "created",
+        "taskCount": 1,
+        "tasks": [
+          { "titleMustMention": ["주차", "parking", "Parking"], "titleMustMentionMode": "any", "dueAt": "2026-10-05", "tags": ["미분류"] }
+        ]
+      },
+      "note": "연도 없는 날짜, 안내 문장(청소 Oct 12 — 'no action is needed')은 할 일이 아니다. 어느 기존 태그에도 안 맞아 '미분류'."
+    },
+    {
+      "image": "03-memo-club-concert-prep.png",
+      "source": "가상 메모 — 번호 셋 중 둘은 할 일, 하나는 참고",
+      "capturedAt": "2026-10-01T20:15:00+09:00",
+      "timezone": "Asia/Seoul",
+      "existingTags": ["회사", "동아리", "가족", "미분류"],
+      "expect": {
+        "outcome": "created",
+        "taskCount": 2,
+        "tasks": [
+          { "titleMustMention": ["대관"], "dueAt": null, "tags": ["동아리"] },
+          { "titleMustMention": ["팸플릿"], "dueAt": null, "tags": ["동아리"] }
+        ]
+      },
+      "note": "과생성 함정(참고 항목)과 마감 없음."
+    },
+    {
+      "image": "04-chat-poster-draft-other-promises.png",
+      "source": "가상 메신저 — 사용자가 묻고, 상대가 금요일까지 주겠다고 약속, 사용자는 감사 인사",
+      "capturedAt": "2026-10-05T14:15:00+09:00",
+      "timezone": "Asia/Seoul",
+      "existingTags": ["회사", "동아리", "가족", "미분류"],
+      "expect": {
+        "outcome": "created",
+        "taskCount": 1,
+        "tasks": [{ "titleMustMention": ["포스터"], "dueAt": null, "tags": ["회사"] }]
+      },
+      "note": "금요일은 **상대의** 약속이라 사용자 태스크의 마감이 아니다. 요약 1개, 마감 없음(AGT-2)."
+    },
+    {
+      "image": "05-landscape-sunset.png",
+      "source": "가상 풍경(노을과 산) — 업무와 무관",
+      "capturedAt": "2026-10-03T18:00:00+09:00",
+      "timezone": "Asia/Seoul",
+      "existingTags": ["회사", "동아리", "가족", "미분류"],
+      "expect": { "outcome": "failed", "failureCode": "NO_TASK_TO_CREATE", "taskCount": 0, "tasks": [] },
+      "note": "AGT-3."
+    },
+    {
+      "image": "06-chat-family-dinner-next-saturday.png",
+      "source": "가상 가족 대화 — 동생이 '다음 주 토요일 저녁 7시' 식당 예약을 부탁, 사용자가 수락",
+      "capturedAt": "2026-10-07T18:40:00+09:00",
+      "timezone": "Asia/Seoul",
+      "existingTags": ["회사", "동아리", "가족", "미분류"],
+      "expect": {
+        "outcome": "created",
+        "taskCount": 1,
+        "tasks": [
+          { "titleMustMention": ["식당", "생신"], "titleMustMentionMode": "any", "dueAt": "2026-10-17T19:00:00+09:00", "tags": ["가족"] }
+        ]
+      },
+      "note": "수요일 기준 '다음 주 토요일' = 10/17. 예약해야 할 저녁 시각을 마감으로 본다(예약 자체를 그 전에 해야 하지만 드러난 시각은 이것뿐이다)."
+    }
+  ]
+}
