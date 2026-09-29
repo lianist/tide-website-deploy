@@ -165,7 +165,7 @@ export function Footer() {
   const link = "text-body-s text-ink-secondary transition-colors hover:text-ink";
   return (
     <footer className="border-t border-line bg-surface">
-      <div className={`${CONTAINER} flex flex-col gap-6 py-12 md:flex-row md:items-start md:justify-between`}>
+      <div className={`${CONTAINER} flex flex-col gap-6 pt-12 pb-6 md:flex-row md:items-start md:justify-between`}>
         <div className="flex flex-col gap-2">
           <TideLogo height={20} />
           <p className="text-body-s text-ink-secondary">{FOOTER.tagline}</p>
@@ -179,7 +179,21 @@ export function Footer() {
           </a>
         </nav>
       </div>
+      <div className={`${CONTAINER} flex flex-wrap items-center gap-4 pb-6`}>
+        {BADGES.map(({ src, alt }) => (
+          // eslint-disable-next-line @next/next/no-img-element
+          <img key={src} src={src} alt={alt} height={44} className="h-11 w-auto" />
+        ))}
+      </div>
       <p className={`${CONTAINER} num pb-8 text-caption text-ink-secondary`}>© 2026 Tide</p>
     </footer>
   );
 }
+
+/** 바닥글 배지 — 순서 고정: Kiro · Bedrock · Microsoft Store · macOS. 원본 SVG는 모두 높이 44. */
+const BADGES = [
+  { src: "/badges/tide-badge-built-with-kiro-plain.svg", alt: "Built with Kiro" },
+  { src: "/badges/tide-badge-powered-by-bedrock-plain.svg", alt: "Powered by AWS Bedrock" },
+  { src: "/badges/tide-badge-microsoft-store-plain.svg", alt: "Microsoft Store에서 받기" },
+  { src: "/badges/tide-badge-macos-plain.svg", alt: "macOS용 다운로드" },
+] as const;
